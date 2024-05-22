@@ -66,7 +66,7 @@ export default {
           this.getData();
         }).catch(res => {
           this.success = false
-          this.tipText = "保存失败,请检查API密钥和通道ID是否正确"
+          this.tipText = "保存失败,请检查appToken和UID是否正确"
         }).finally(() => {
           this.saveTip = true
         })
@@ -81,7 +81,7 @@ export default {
             }
           }).catch(res => {
           this.success = false
-          this.tipText = "保存失败,请检查API密钥和通道ID是否正确"
+          this.tipText = "保存失败,请检查appToken和UID是否正确"
         }).finally(() => {
           this.saveTip = true
         })
@@ -154,40 +154,34 @@ export default {
         </div>
         <div class="!p-0 card-body">
           <div style="padding: 40px;">
-            <div class="tip">
-              🎈 通过AnPush的接口实现的通知推送, 免费套餐已足够博客使用。 <a href="https://anpush.com/?halo" target="_blank"
-                                                     style="text-decoration: underline;color: #000000;"> 获取密钥 > </a>
-              <br>
-              <div>根据官网描述可以推送至12个应用，我测试了微信、企业微信、微信测试号、飞书、钉钉都没有问题</div>
-            </div>
             <section class="main">
-              <div
-                class="nm-title-container formkit-outer formkit-disabled:opacity-50 py-4 first:pt-0 last:pb-0 transition-all">
-                <div class="nm-checkbox-title">
-                  <svg style="display: inline" class="icon" viewBox="0 0 1024 1024" version="1.1"
-                       xmlns="http://www.w3.org/2000/svg" p-id="4565" width="20" height="20">
-                    <path
-                      d="M822.272 523.776H202.24c-13.824 0-25.088-11.264-25.088-25.088s11.264-25.088 25.088-25.088h620.032c13.824 0 25.088 11.264 25.088 25.088 0.512 13.824-10.752 25.088-25.088 25.088z"
-                      fill="#000000" p-id="4566"></path>
-                    <path
-                      d="M484.352 817.664V197.632c0-13.824 11.264-25.088 25.088-25.088s25.088 11.264 25.088 25.088v620.032c0 13.824-11.264 25.088-25.088 25.088s-25.088-11.264-25.088-25.088z"
-                      fill="#000000" p-id="4567"></path>
-                    <path
-                      d="M509.952 867.84c-198.656 0-360.448-161.792-360.448-360.448s161.792-360.448 360.448-360.448S870.4 308.736 870.4 507.392s-161.792 360.448-360.448 360.448z m0-671.744c-171.52 0-311.296 139.776-311.296 311.296s139.776 311.296 311.296 311.296 311.296-139.776 311.296-311.296-139.776-311.296-311.296-311.296z"
-                      fill="#000000" p-id="4568"></path>
-                    <path
-                      d="M456.704 856.064c-325.632-400.384-0.512-696.32 2.56-699.392l32.768 36.864-16.384-18.432 16.384 18.432c-12.288 10.752-292.864 268.288 2.56 631.808l-37.888 30.72zM571.904 856.064l-37.888-30.72c295.424-363.008 14.848-620.544 2.56-631.808l32.768-36.864c3.072 3.072 328.192 299.52 2.56 699.392z"
-                      fill="#000000" p-id="4569"></path>
-                  </svg>
-                  <span class="icon-title">站点地址</span>
-                </div>
-                <div
-                  class="formkit-inner inline-flex items-center w-full relative box-border border border-gray-300 formkit-invalid:border-red-500 h-9 rounded-base overflow-hidden focus-within:border-primary focus-within:shadow-sm sm:max-w-lg transition-all">
-                  <input
-                    class="nm-input formkit-input bg-white resize-none w-full text-black block transition-all h-full px-3 text-sm"
-                    type="text" v-model="data.siteUrl" placeholder="eg: https://xiqi.org"/>
-                </div>
-              </div>
+<!--              <div-->
+<!--                class="nm-title-container formkit-outer formkit-disabled:opacity-50 py-4 first:pt-0 last:pb-0 transition-all">-->
+<!--                <div class="nm-checkbox-title">-->
+<!--                  <svg style="display: inline" class="icon" viewBox="0 0 1024 1024" version="1.1"-->
+<!--                       xmlns="http://www.w3.org/2000/svg" p-id="4565" width="20" height="20">-->
+<!--                    <path-->
+<!--                      d="M822.272 523.776H202.24c-13.824 0-25.088-11.264-25.088-25.088s11.264-25.088 25.088-25.088h620.032c13.824 0 25.088 11.264 25.088 25.088 0.512 13.824-10.752 25.088-25.088 25.088z"-->
+<!--                      fill="#000000" p-id="4566"></path>-->
+<!--                    <path-->
+<!--                      d="M484.352 817.664V197.632c0-13.824 11.264-25.088 25.088-25.088s25.088 11.264 25.088 25.088v620.032c0 13.824-11.264 25.088-25.088 25.088s-25.088-11.264-25.088-25.088z"-->
+<!--                      fill="#000000" p-id="4567"></path>-->
+<!--                    <path-->
+<!--                      d="M509.952 867.84c-198.656 0-360.448-161.792-360.448-360.448s161.792-360.448 360.448-360.448S870.4 308.736 870.4 507.392s-161.792 360.448-360.448 360.448z m0-671.744c-171.52 0-311.296 139.776-311.296 311.296s139.776 311.296 311.296 311.296 311.296-139.776 311.296-311.296-139.776-311.296-311.296-311.296z"-->
+<!--                      fill="#000000" p-id="4568"></path>-->
+<!--                    <path-->
+<!--                      d="M456.704 856.064c-325.632-400.384-0.512-696.32 2.56-699.392l32.768 36.864-16.384-18.432 16.384 18.432c-12.288 10.752-292.864 268.288 2.56 631.808l-37.888 30.72zM571.904 856.064l-37.888-30.72c295.424-363.008 14.848-620.544 2.56-631.808l32.768-36.864c3.072 3.072 328.192 299.52 2.56 699.392z"-->
+<!--                      fill="#000000" p-id="4569"></path>-->
+<!--                  </svg>-->
+<!--                  <span class="icon-title">站点地址</span>-->
+<!--                </div>-->
+<!--                <div-->
+<!--                  class="formkit-inner inline-flex items-center w-full relative box-border border border-gray-300 formkit-invalid:border-red-500 h-9 rounded-base overflow-hidden focus-within:border-primary focus-within:shadow-sm sm:max-w-lg transition-all">-->
+<!--                  <input-->
+<!--                    class="nm-input formkit-input bg-white resize-none w-full text-black block transition-all h-full px-3 text-sm"-->
+<!--                    type="text" v-model="data.siteUrl" placeholder="eg: https://xiqi.org"/>-->
+<!--                </div>-->
+<!--              </div>-->
               <div
                 class="nm-title-container formkit-outer formkit-disabled:opacity-50 py-4 first:pt-0 last:pb-0 transition-all">
                 <div class="nm-checkbox-title">
@@ -197,13 +191,13 @@ export default {
                       d="M256 426.666667h512v426.666666H256V426.666667z m85.333333 85.333333v256h341.333334v-256H341.333333z m0-42.666667H256v-42.666666h85.333333V341.333333c0-93.866667 76.8-170.666667 170.666667-170.666666s170.666667 76.8 170.666667 170.666666v85.333334h85.333333v42.666666h-170.666667V341.333333c0-46.933333-38.4-85.333333-85.333333-85.333333s-85.333333 38.4-85.333333 85.333333v128H341.333333z m170.666667 213.333334c-25.6 0-42.666667-17.066667-42.666667-42.666667s17.066667-42.666667 42.666667-42.666667 42.666667 17.066667 42.666667 42.666667-17.066667 42.666667-42.666667 42.666667z"
                       fill="#000000" p-id="10135"></path>
                   </svg>
-                  <span class="icon-title">API密钥</span>
+                  <span class="icon-title">appToken</span>
                 </div>
                 <div
                   class="formkit-inner inline-flex items-center w-full relative box-border border border-gray-300 formkit-invalid:border-red-500 h-9 rounded-base overflow-hidden focus-within:border-primary focus-within:shadow-sm sm:max-w-lg transition-all">
                   <input
                     class="nm-input formkit-input bg-white resize-none w-full text-black block transition-all h-full px-3 text-sm"
-                    type="password" v-model="data.apiKey" placeholder="AnPush后台获取"/>
+                    type="password" v-model="data.apiKey" placeholder="WxPusher后台获取"/>
                 </div>
               </div>
               <div
@@ -214,35 +208,13 @@ export default {
                           d="M12 2c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12S6.48 2 12 2Zm0 18c4.42 0 8-3.58 8-8s-3.58-8-8-8s-8 3.58-8 8s3.58 8 8 8Zm1-8v4h-2v-4H8l4-4l4 4h-3Z">
                     </path>
                   </svg>
-                  <span class="icon-title">通道ID</span>
+                  <span class="icon-title">UID</span>
                 </div>
                 <div
                   class="formkit-inner inline-flex items-center w-full relative box-border border border-gray-300 formkit-invalid:border-red-500 h-9 rounded-base overflow-hidden focus-within:border-primary focus-within:shadow-sm sm:max-w-lg transition-all">
                   <input
                     class="nm-input formkit-input bg-white resize-none w-full text-black block transition-all h-full px-3 text-sm"
-                    type="text" v-model="data.channel" placeholder="有多个就用英文逗号隔开"/>
-                </div>
-              </div>
-              <div
-                class="nm-title-container formkit-outer formkit-disabled:opacity-50 py-4 first:pt-0 last:pb-0 transition-all">
-                <div class="nm-checkbox-title">
-                  <svg style="display: inline" viewBox="0 0 24 24" width="20px" height="20px">
-                    <path fill="currentColor"
-                          d="M12 2c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12S6.48 2 12 2Zm0 18c4.42 0 8-3.58 8-8s-3.58-8-8-8s-8 3.58-8 8s3.58 8 8 8Zm1-8v4h-2v-4H8l4-4l4 4h-3Z">
-                    </path>
-                  </svg>
-                  <span class="icon-title">通道是否是微信公众号</span>
-                  <div style="font-size: 13px;font-weight: normal;color: #8077a4;padding: 5px">
-                    ❗️ 如果你用的通道是微信公众号一定要勾选[其他的不要勾选]，因为微信公众号的模板消息标题长度固定，超出长度无法发送！
-                  </div>
-                </div>
-                <div style="padding: 10px"
-                     class="formkit-inner inline-flex items-center w-full relative box-border border border-gray-300 formkit-invalid:border-red-500 h-9 rounded-base overflow-hidden focus-within:border-primary focus-within:shadow-sm sm:max-w-lg transition-all">
-                  <input class="toggle-all" type="checkbox" :checked="data.wechatStatus"
-                         v-model="data.wechatStatus"/>
-                  <label for="toggle-all"><span class="nm-checkbox-text"
-                                                style="font-size: 14px;color: red;vertical-align: 1px">
-                    是</span></label>
+                    type="text" v-model="data.channel" placeholder="需要通知的UID，有多个就用英文逗号隔开"/>
                 </div>
               </div>
               <div

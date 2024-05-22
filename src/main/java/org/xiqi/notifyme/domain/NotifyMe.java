@@ -43,5 +43,4 @@ public class NotifyMe extends AbstractExtension {
 
     @Schema(defaultValue = "false")
     private Boolean postDelStatus; // 文章删除通知开关
-
 }
